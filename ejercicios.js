@@ -47,12 +47,28 @@ Output:
 }
 */
 
-const transformarNombres = (nombres) => {
-    nombres.reduce((resultado, nombre, index) => {
-        resultado[index] = ({name: nombre, length: nombre.length, isGreaterThanFour: (nombre.length > 3? true : false)});
-        console.log(resultado)
-        return resultado;
-    }, {});
-};
+// const transformarNombres = (nombres) => {
+//     nombres.reduce((resultado, nombre, index) => {
+//         resultado[index] = ({name: nombre, length: nombre.length, isGreaterThanFour: (nombre.length > 3? true : false)});
+//         console.log(resultado);
+//         return resultado;
+//     }, {});
+// };
 
-transformarNombres(nombres);
+// transformarNombres(nombres);
+
+const transformarNombres = (names) => {
+    return names.reduce((acumulador, valorActual, indice) =>{
+        return {
+            ...acumulador,
+            [indice]: {
+                name: valorActual,
+                length: valorActual.length,
+                isGreaterThanFour: valorActual.length > 3
+            }
+        }
+
+    }, {})
+}
+const nombresTransformados = transformarNombres(nombres);
+console.log(nombresTransformados);
