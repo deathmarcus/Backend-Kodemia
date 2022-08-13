@@ -73,10 +73,19 @@
         const hornearPastelAsync = await hornearPastel({...prepararMasaAsync});
         const decorarPastelAsync = await decorarPastel({...hornearPastelAsync});
         console.log("El pastel está listo", decorarPastelAsync);
+
+        return decorarPastelAsync;
     }
     catch (error) {
         console.log("Fallo:", error);
     }
   };
 
-  pastelPreparado();
+  pastelPreparado()
+  .then((decorarPastelAsync) => {
+    console.log ("Pastel decorado y listo fuera de la funcion", decorarPastelAsync);
+  })
+  .catch((err) => {
+    console.log("Paso un error", err);
+
+  });
