@@ -3,15 +3,39 @@ const express = require("express");
 const app = express();
 
 app.get("/", (request, response) => {
-    response.write("Hola, Bienvenido al get de Home");
+    response.write("Hola, Bienvenido al GET de Home");
     response.end();
 });
+
+app.get("/profile", (request, response) => {
+    response.write("Hola Bienvenido al GET de Profile");
+    response.end();
+  });
+
+app.post("/", (request, response) => {
+    response.write("Hola, Bienvenido al POST de Home");
+    response.end();
+});
+
+app.patch("/", (request, response) => {
+    response.write("Hola, Bienvenido al PATCH de Home");
+    response.end();
+});
+
+app.put("/", (request, response) => {
+    response.write("Hola, Bienvenido al PUT de Home");
+    response.end();
+});
+
+app.delete("/", (request, response) => {
+    response.write("Hola, Bienvenido al DELETE de Home");
+    response.end();
+});
+
+
 app.listen("8080", () => {
     console.log("Servidor escuchando");
 });
-
-
-
 // Se crea un servidor http
 
 //5 Endpoints
